@@ -3,6 +3,7 @@ from snake import Snake
 from colors import *
 from constants import *
 from food import *
+from random import randint
 
 pg.init()
 
@@ -12,7 +13,7 @@ Running = True
 timer = pg.time.Clock()
 
 snake = Snake((int(WIDTH / 2), int(HEIGHT / 2)), (0, 0))
-foods = [Food((5, 5)) for _ in range(FOODS_AT_A_TIME)]
+foods = [Food.generate() for _ in range(FOODS_AT_A_TIME)]
 
 def update():
     internal_screen.fill(BLACK)
@@ -45,7 +46,7 @@ def main():
         screen.blit(pg.transform.scale(internal_screen, screen.get_rect().size), (0, 0))
         pg.display.update()
 
-        timer.tick(5)
+        timer.tick(10)
 
 if __name__ == "__main__":
     main()

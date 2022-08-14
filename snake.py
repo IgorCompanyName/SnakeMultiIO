@@ -15,14 +15,15 @@ class Snake:
     
     def step(self, foods: list[Food]):
         self.pos = (self.pos[0] + self.dir[0], self.pos[1] + self.dir[1])
-        for food in foods:
-            if pos_equal(food.pos, self.pos) and not food.eaten:
-                food.eaten = True
-                self.add_size()
         for i in range(1, len(self.history)):
             pos = self.history[i]
             if pos_equal(self.pos, pos):
                 end_game()
+        for food in foods:
+            if pos_equal(food.pos, self.pos) and not food.eaten:
+                food.regenerate()
+                self.add_size()
+
         if not DIES_ON_BORDER:
             if self.pos[0] >= WIDTH:
                 self.pos = (0, self.pos[1])
