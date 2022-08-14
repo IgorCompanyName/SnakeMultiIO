@@ -7,6 +7,11 @@ from random import randint
 
 pg.init()
 
+# Multiplayer
+# TODO: Remove all client-side snake operations and variables
+# TODO: Move them to server-side, so that clients are only able to input and see stuff, not modify anything
+# TODO: Server must have constant tick rate of 10 or something
+
 screen = pg.display.set_mode(REAL_SIZE)
 internal_screen = pg.Surface(SIZE)
 Running = True
@@ -46,7 +51,7 @@ def main():
         screen.blit(pg.transform.scale(internal_screen, screen.get_rect().size), (0, 0))
         pg.display.update()
 
-        timer.tick(10)
+        timer.tick(FRAMERATE)
 
 if __name__ == "__main__":
     main()
