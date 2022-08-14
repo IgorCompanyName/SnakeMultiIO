@@ -10,14 +10,14 @@ class Snake:
     def step(self):
         self.pos = (self.pos[0] + self.dir[0], self.pos[1] + self.dir[1])
         if not DIES_ON_BORDER:
-            if self.pos[0] > WIDTH:
+            if self.pos[0] >= WIDTH:
                 self.pos = (0, self.pos[1])
             elif self.pos[0] < 0:
-                self.pos = (WIDTH, self.pos[1])
-            if self.pos[1] > HEIGHT:
+                self.pos = (WIDTH - 1, self.pos[1])
+            if self.pos[1] >= HEIGHT:
                 self.pos = (self.pos[0], 0)
             elif self.pos[1] < 0:
-                self.pos = (self.pos[0], HEIGHT)
+                self.pos = (self.pos[0], HEIGHT - 1)
         else:
             if 0 > self.pos[0] > WIDTH or 0 > self.pos[1] > HEIGHT:
                 exit(0)

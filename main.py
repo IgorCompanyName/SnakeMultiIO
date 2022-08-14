@@ -37,7 +37,7 @@ def main():
         screen.blit(pg.transform.scale(internal_screen, screen.get_rect().size), (0, 0))
         pg.display.update()
 
-        timer.tick(6)
+        timer.tick(10)
 
 if __name__ == "__main__":
     main()
