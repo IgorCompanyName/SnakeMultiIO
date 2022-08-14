@@ -6,6 +6,7 @@ FOOD_COLLECTABLE = False
 FOODS_AT_A_TIME = 1
 DEBUG_MODE = True
 FRAMERATE = 8
+GOD_MODE = False
 
 def end_game():
     exit(0)

@@ -15,7 +15,7 @@ class Snake:
     
     def step(self, foods: list[Food]):
         self.pos = (self.pos[0] + self.dir[0], self.pos[1] + self.dir[1])
-        if not DIES_ON_BORDER:
+        if not DIES_ON_BORDER or GOD_MODE:
             if self.pos[0] >= WIDTH:
                 self.pos = (0, self.pos[1])
             elif self.pos[0] < 0:
@@ -28,11 +28,11 @@ class Snake:
             if self.pos[0] >= WIDTH or self.pos[0] < 0 or \
             self.pos[1] >= HEIGHT or self.pos[1] < 0:
                 end_game()
-
-        for i in range(1, len(self.history)):
-            pos = self.history[i]
-            if pos_equal(self.pos, pos):
-                end_game()
+        if not GOD_MODE:
+            for i in range(1, len(self.history)):
+                pos = self.history[i]
+                if pos_equal(self.pos, pos):
+                    end_game()
         for food in foods:
             if pos_equal(food.pos, self.pos) and not food.eaten:
                 food.regenerate()
