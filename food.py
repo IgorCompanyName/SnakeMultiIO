@@ -1,6 +1,6 @@
 import pygame as pg
 from colors import *
-from constants import *
+from config import *
 from random import randint
 
 class Food:

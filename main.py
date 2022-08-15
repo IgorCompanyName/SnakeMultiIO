@@ -1,7 +1,7 @@
 import pygame as pg
 from snake import Snake
 from colors import *
-from constants import *
+from config import *
 from food import *
 from random import randint
 
