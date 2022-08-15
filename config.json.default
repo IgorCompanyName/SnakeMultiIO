@@ -1,0 +1,10 @@
+{
+    "size": {"width": 20, "height": 20},
+    "scale": {"x": 20, "y": 20},
+    "food_at_once": 1,
+    "framerate": 8,
+    "death_on_border": false,
+    "food_is_collectable": true,
+    "debug_mode": false,
+    "god_mode": false
+}

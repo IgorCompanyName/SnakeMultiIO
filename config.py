@@ -6,9 +6,12 @@ try:
     with open("config.json", "r") as config:
         CFG = json.loads(config.read())
 except FileNotFoundError:
-    print("You don't have config file yet! This is not allowed in current version, "
-    "you have to create config.json yourself!")
-    exit(0)
+    print("You don't have config file yet! Default one will be generated...")
+    with open("config.json", "w") as config:
+        with open("config.json.default", "r") as default:
+            config.write(default.read())
+with open("config.json", "r") as config:
+    CFG = json.loads(config.read())
 
 SIZE = WIDTH, HEIGHT = CFG['size']['width'], CFG['size']['height']
 SCALING_FACTOR = SCALE_X, SCALE_Y = CFG['scale']['x'], CFG['scale']['y']
